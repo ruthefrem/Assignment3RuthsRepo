@@ -22,6 +22,7 @@ clinical <- read_csv("~/Desktop/DS3001/DS-3001/data/clinical_breast_cleaned.csv"
 x1 <- group_by(clinical, Tumor)
 x2 <- summarize(x1, mean(Age.at.Initial.Pathologic.Diagnosis))
 df <- as.data.frame(x2)
-ggplot(df, aes(x=Tumor, y=`mean(Age.at.Initial.Pathologic.Diagnosis)`)) + geom_bar(stat='identity')
+bargraph <- ggplot(df, aes(x=Tumor, y=`mean(Age.at.Initial.Pathologic.Diagnosis)`)) + geom_bar(stat='identity')
+bargraph
 ```
 
