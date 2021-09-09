@@ -15,17 +15,13 @@ When you click the **Knit** button a document will be generated that includes bo
 
 ```{r}
 library(tidyverse)
-clinical <- read_csv("~/Desktop/DS-3001/data/clinical_breast_cleaned.csv")
-View(clinical)
-
+clinical <- read_csv("~/Desktop/DS3001/DS-3001/data/clinical_breast_cleaned.csv")
 ```
 
-## Including Plots
-
-You can also embed plots, for example:
-
-```{r pressure, echo=FALSE}
-plot(pressure)
+```{r}
+x1 <- group_by(clinical, Tumor)
+x2 <- summarize(x1, mean(Age.at.Initial.Pathologic.Diagnosis))
+df <- as.data.frame(x2)
+ggplot(df, aes(x=Tumor, y=`mean(Age.at.Initial.Pathologic.Diagnosis)`)) + geom_bar(stat='identity')
 ```
 
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
