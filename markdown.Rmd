@@ -23,6 +23,7 @@ x1 <- group_by(clinical, Tumor)
 x2 <- summarize(x1, mean(Age.at.Initial.Pathologic.Diagnosis))
 df <- as.data.frame(x2)
 bargraph <- ggplot(df, aes(x=Tumor, y=`mean(Age.at.Initial.Pathologic.Diagnosis)`)) + geom_bar(stat='identity')
+
 bargraph
 ```
 
